@@ -1,6 +1,5 @@
 var express = require('express');
 var bodyParser = require('body-parser');
-var mqtt = require('./mqtt');
 var cors = require("cors");
 var app = express();
 
@@ -19,4 +18,4 @@ app.listen(3000, () => {
     console.log("Server is listening");
 });
 
-app.use('/lighting', mqtt);
+app.use('/lighting', require("./lighting"));

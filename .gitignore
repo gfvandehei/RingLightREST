@@ -1,3 +1,7 @@
 **pycache**
 *.env
 .vscode
+**.egg-info
+*.pyc
+venv
+.vscode

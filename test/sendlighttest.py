@@ -5,7 +5,7 @@ from threading import Thread
 buffer = []
 
 
-message = b""
+message = struct.pack("!BB", 0, 255)
 for i in range(36):
     message += struct.pack("!BBB", 255, 255, 255)
 

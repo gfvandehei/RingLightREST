@@ -3,6 +3,9 @@ import socket
 class BaseLight(object):
 
     def __init__(self, address, l_type, name, l_id):
+        self.state = {
+            "lights": []
+        }
         self.address = address
         self.type = l_type
         self.name = name

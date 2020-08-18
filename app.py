@@ -1,4 +1,11 @@
-from RingLightAPI.services import Services
+from RingLightAPI.containers.basecontainer import BaseContainer
+from RingLightAPI import create_app
 
-l = Services.mqtt_lighting()
-Services.mqtt_client().start()
+if __name__ == "__main__":
+    
+    BaseContainer.config.from_yaml('config.yaml')
+
+    listener = BaseContainer.light_finder()
+    listener.start()
+
+    create_app()

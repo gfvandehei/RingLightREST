@@ -1,5 +1,4 @@
-from flask import Blueprint, request
-from RingLightAPI.containers.basecontainer import BaseContainer
+from flask import Blueprint, request, current_app
 import logging
 import json
 
@@ -9,7 +8,7 @@ ring_bp = Blueprint('ringlight', __name__)
 
 @ring_bp.route('/', methods=["GET"])
 def get_lights():
-    light_store = BaseContainer.light_store()
+    light_store = current_app.config.get("lightstore")
     lights = light_store.get_lights()
 
     response = []
@@ -34,7 +33,7 @@ def set_color():
         b = body['b']
         brightness = body['brightness']
 
-        light_store = BaseContainer.light_store()
+        light_store = current_app.config.get("lightstore")
         print(light_store)
         light = light_store.get_light(light_id)
         light.set_strip_color(r, g, b, brightness)
@@ -51,7 +50,7 @@ def set_frame():
         brightness = body['brightness']
         frame = body['frame']
 
-        light_store = BaseContainer.light_store()
+        light_store = current_app.config.get("lightstore")
         print(light_store)
         light = light_store.get_light(light_id)
         light.set_entire_frame(frame, brightness)

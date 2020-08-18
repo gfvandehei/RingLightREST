@@ -1,4 +1,4 @@
-from dependency_injector import providers, containers
+import configparser
 
-class Configs(containers.DeclarativeContainer):
-    config = providers.Configuration('config')
+config = configparser.ConfigParser()
+config.read('config.ini')

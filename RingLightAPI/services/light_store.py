@@ -1,5 +1,7 @@
 from RingLightAPI.model.ring_light import RingLight
+from singleton_decorator import singleton
 
+@singleton
 class LightStore(object):
 
     def __init__(self):

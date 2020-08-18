@@ -3,7 +3,9 @@ import socket
 import json
 import logging
 from RingLightAPI.services.light_factory import LightFactory
+from singleton_decorator import singleton
 
+@singleton
 class LightDeviceFinder(Thread):
 
     def __init__(self, listen_port, light_factory: LightFactory):

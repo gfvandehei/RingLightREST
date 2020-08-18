@@ -1,13 +1,14 @@
 import logging
 from RingLightAPI.model.ring_light import RingLight
 from RingLightAPI.services.light_store import LightStore
+from singleton_decorator import singleton
 
 log = logging.getLogger(__name__)
 
+@singleton
 class LightFactory(object):
 
     def __init__(self, light_store: LightStore):
-        print(light_store)
         self.created_ids = set()
         self.light_store = light_store
 

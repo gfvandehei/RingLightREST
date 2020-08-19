@@ -9,8 +9,8 @@ class LightStore(object):
 
     def add_light(self, light_obj:RingLight):
         self.lights.append(light_obj)
-        print("added light")
-        print(self.lights)
+        # print("added light")
+        # print(self.lights)
 
     def get_lights(self):
         return self.lights

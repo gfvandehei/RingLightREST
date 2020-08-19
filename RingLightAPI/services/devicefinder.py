@@ -26,7 +26,7 @@ class LightDeviceFinder(Thread):
         while not self.end_f:
             try:
                 data, addr = self.l_socket.recvfrom(1024)
-                logging.debug(f"Received data {data}")
+                #logging.debug(f"Received data {data}")
                 data_json = json.loads(data)
                 device = self.check_data_json(data_json)
                 if device is not None:

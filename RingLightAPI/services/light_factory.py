@@ -14,11 +14,9 @@ class LightFactory(object):
 
     def create_light(self, name, light_id, light_type, address):
         if light_type == "ring":
-            log.debug(f"Attempting to create light {light_id}")
+            # log.debug(f"Attempting to create light {light_id}")
             # Create a ring light
-            if light_id in self.created_ids:
-                log.debug(f"Light {light_id} already exists")
-            else:
+            if light_id not in self.created_ids:
                 new_ring_light = RingLight(name, light_id, address)
                 self.light_store.add_light(new_ring_light)
                 self.created_ids.add(light_id)

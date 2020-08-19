@@ -7,6 +7,7 @@ class RingLight(object):
     def __init__(self, name, l_id, address):
         self.name = name
         self.l_id = l_id
+        self.type = "ring"
         self.address = address
         self.state = [[0,0,0]]*36
 

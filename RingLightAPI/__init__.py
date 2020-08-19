@@ -68,4 +68,4 @@ with app.app_context():
 
 def create_app():
     global app
-    app.run()
+    app.run(host='0.0.0.0')

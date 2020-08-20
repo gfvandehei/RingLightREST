@@ -1,0 +1,5 @@
+version: '3'
+services:
+  ringlight_rest:
+    image: ringrest
+    network_mode: host

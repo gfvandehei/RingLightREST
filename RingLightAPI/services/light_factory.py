@@ -2,7 +2,7 @@ import logging
 from RingLightAPI.model.ring_light import RingLight
 from RingLightAPI.services.light_store import LightStore
 from singleton_decorator import singleton
-
+from RingLightAPI.devices.light_ringlight import RingLightSource
 log = logging.getLogger(__name__)
 
 @singleton
@@ -17,9 +17,9 @@ class LightFactory(object):
             # log.debug(f"Attempting to create light {light_id}")
             # Create a ring light
             if light_id not in self.created_ids:
-                new_ring_light = RingLight(name, light_id, address)
+                new_ring_light = RingLightSource(name, address)
                 self.light_store.add_light(new_ring_light)
-                self.created_ids.add(light_id)
+                self.created_ids.add(name)
                 log.debug(f"Created light {light_id}")
         else:
             return

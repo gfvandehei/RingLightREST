@@ -63,8 +63,10 @@ app.config['lightstore'] = lightstore
 CORS(app)
 
 with app.app_context():
+    from RingLightAPI.routes.lights import lights_bp
+    app.register_blueprint(lights_bp, url_prefix="/lights")
     from RingLightAPI.routes.ring_light import ring_bp
-    app.register_blueprint(ring_bp,  url_prefix='/lighting/ringlight')
+    app.register_blueprint(ring_bp,  url_prefix='/ringlights')
 
 def create_app():
     global app

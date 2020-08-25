@@ -55,6 +55,8 @@ def set_frame():
         print(light_store)
         light = light_store.get_light(light_id)
         light.set_frame(frame, brightness)
+        print("OK")
         return {"status": "OK"}
     except Exception as e:
+        print(e)
         return {"status": "ERROR", "message": str(e)}

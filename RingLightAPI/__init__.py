@@ -58,11 +58,13 @@ lightfind = LightDeviceFinder(int(config["listener"]['port']), light_factory=lig
 
 lightfind.start()
 
-app = Flask(__name__)
+app = Flask(__name__, template_folder=config['angular']['path'], static_folder="/home/gabriel/Documents/projects/RingLightAngular/dist/", static_url_path="/static")
 app.config['lightstore'] = lightstore
 CORS(app)
 
 with app.app_context():
+    from RingLightAPI.routes.main import main_bp
+    app.register_blueprint(main_bp)
     from RingLightAPI.routes.lights import lights_bp
     app.register_blueprint(lights_bp, url_prefix="/lights")
     from RingLightAPI.routes.ring_light import ring_bp
